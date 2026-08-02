@@ -27,7 +27,7 @@ public class EmployeeApiSimulation extends Simulation {
 
     ScenarioBuilder employeeScenario = scenario("Employee API Flow")
 
-            // 1. Obtener token CSRF de la página de login
+            // 1. Obtener token de la página de login
             .exec(
                 http("GET - Login Page")
                     .get("/web/index.php/auth/login")

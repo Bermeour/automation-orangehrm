@@ -34,29 +34,6 @@ public class AuthApi {
         return loginResponse.getDetailedCookies();
     }
 
-    public static Response getSessionCookiesResponse() {
-        Cookies initialCookies = RestAssured
-                .given()
-                    .baseUri(ConfigReader.get("api.base.url"))
-                    .redirects().follow(false)
-                .when()
-                    .get("/web/index.php/auth/login")
-                .then()
-                    .extract().response().getDetailedCookies();
-
-        return RestAssured
-                .given()
-                    .baseUri(ConfigReader.get("api.base.url"))
-                    .cookies(initialCookies)
-                    .contentType("application/x-www-form-urlencoded")
-                    .formParam("_token", getToken(initialCookies))
-                    .formParam("username", ConfigReader.get("username"))
-                    .formParam("password", ConfigReader.get("password"))
-                    .redirects().follow(true)
-                .when()
-                    .post("/web/index.php/auth/validate");
-    }
-
     public static Response getSessionCookiesResponseWithInvalidCredentials() {
         Cookies initialCookies = RestAssured
                 .given()
@@ -89,7 +66,7 @@ public class AuthApi {
                     .get("/web/index.php/auth/login");
 
         String body = loginPage.getBody().asString();
-        // El token CSRF esta en el atributo del componente Vue: token="&quot;VALOR&quot;"
+        // El token  esta en el atributo del componente Vue: token="&quot;VALOR&quot;"
         String marker = "token=\"&quot;";
         int start = body.indexOf(marker);
         if (start == -1) return "";

@@ -12,9 +12,6 @@ public class DashboardPage extends BasePage {
         return isDisplayed(dashboardTitle);
     }
 
-    public String getTitle() {
-        return getText(dashboardTitle);
-    }
 
     public PimPage navigateToPim() {
         click(pimMenuOption);

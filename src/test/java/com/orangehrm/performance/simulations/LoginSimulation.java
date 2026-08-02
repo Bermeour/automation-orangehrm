@@ -24,7 +24,7 @@ public class LoginSimulation extends Simulation {
             .acceptEncodingHeader("gzip, deflate")
             .userAgentHeader("Gatling/OrangeHRM-PerformanceTest");
 
-    // El token CSRF aparece como: token="&quot;VALOR&quot;" en el HTML
+    // El token aparece como: token="&quot;VALOR&quot;" en el HTML
     ScenarioBuilder loginScenario = scenario("Login Flow")
             .exec(
                 http("GET - Login Page")

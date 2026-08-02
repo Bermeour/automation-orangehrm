@@ -12,13 +12,9 @@ public class AddEmployeePage extends BasePage {
     private final By firstNameField    = By.name("firstName");
     private final By middleNameField   = By.name("middleName");
     private final By lastNameField     = By.name("lastName");
-    private final By employeeIdField   = By.xpath("//label[text()='Employee Id']/following::input[1]");
     private final By saveButton        = By.cssSelector("button[type='submit']");
     private final By profilePicInput   = By.cssSelector("input[type='file']");
- ////   private final By profilePicButton  = By.cssSelector(".employee-image-placeholder");
     private final By savePhotoButton   = By.xpath("//button[normalize-space()='Save']");
- //   private final By pageTitle         = By.cssSelector(".oxd-topbar-header-breadcrumb h6");
- //   private final By successToast      = By.cssSelector(".oxd-toast-content--success");
 
     public boolean isLoaded() {
         return isDisplayed(firstNameField);
@@ -37,10 +33,6 @@ public class AddEmployeePage extends BasePage {
     public AddEmployeePage enterLastName(String lastName) {
         type(lastNameField, lastName);
         return this;
-    }
-
-    public String getEmployeeId() {
-        return waitForVisible(employeeIdField).getAttribute("value");
     }
 
     public AddEmployeePage uploadProfilePhoto(String imagePath) {
@@ -62,8 +54,4 @@ public class AddEmployeePage extends BasePage {
         click(saveButton);
         return new PersonalDetailsPage();
     }
-
-   /* public boolean isSuccessToastDisplayed() {
-        return isDisplayed(successToast);
-    }*/
 }

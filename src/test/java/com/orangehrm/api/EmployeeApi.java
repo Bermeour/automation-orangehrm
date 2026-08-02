@@ -27,18 +27,6 @@ public class EmployeeApi {
                     .get(EMPLOYEES_ENDPOINT);
     }
 
-   /* public Response getAll(int limit, int offset) {
-        return RestAssured
-                .given()
-                    .baseUri(ConfigReader.get("api.base.url"))
-                    .cookies(cookies)
-                    .contentType("application/json")
-                    .queryParam("limit", limit)
-                    .queryParam("offset", offset)
-                .when()
-                    .get(EMPLOYEES_ENDPOINT);
-    }*/
-
     public Response getById(int empNumber) {
         return RestAssured
                 .given()

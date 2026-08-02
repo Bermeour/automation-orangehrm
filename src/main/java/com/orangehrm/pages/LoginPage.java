@@ -8,7 +8,6 @@ public class LoginPage extends BasePage {
     private final By passwordField = By.name("password");
     private final By loginButton   = By.cssSelector("button[type='submit']");
     private final By errorMessage  = By.cssSelector(".oxd-alert-content-text");
-   // private final By dashboardTitle = By.cssSelector(".oxd-topbar-header-breadcrumb h6");
 
     public LoginPage enterUsername(String username) {
         type(usernameField, username);
@@ -35,7 +34,4 @@ public class LoginPage extends BasePage {
         return getText(errorMessage);
     }
 
-   /* public boolean isDashboardDisplayed() {
-        return isDisplayed(dashboardTitle);
-    }*/
 }

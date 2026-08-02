@@ -44,11 +44,4 @@ public class BaseTest {
         ExtentManager.getTest().log(Status.PASS, message);
     }
 
-    /*protected void logFail(String message) {
-        try {
-            String base64 = ScreenshotUtil.captureAsBase64();
-            ExtentManager.getTest().addScreenCaptureFromBase64String(base64, "Captura del fallo");
-        } catch (Exception ignored) {}
-        ExtentManager.getTest().log(Status.FAIL, message);
-    }*/
 }

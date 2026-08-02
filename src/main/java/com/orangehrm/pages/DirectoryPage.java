@@ -12,8 +12,6 @@ public class DirectoryPage extends BasePage {
     private final By autocompleteOption = By.cssSelector(".oxd-autocomplete-option");
     private final By searchButton      = By.cssSelector("button[type='submit']");
     private final By employeeCards     = By.cssSelector(".orangehrm-directory-card");
-   // private final By employeeCardNames = By.cssSelector(".orangehrm-directory-card-header");
-    //private final By noRecordsFound    = By.xpath("//*[contains(text(),'No Records Found')]");
 
     public boolean isLoaded() {
         return isDisplayed(pageTitle);
@@ -45,18 +43,6 @@ public class DirectoryPage extends BasePage {
         List<WebElement> cards = driver.findElements(employeeCards);
         return cards.size();
     }
-
-  /*  public String getFirstResultName() {
-        List<WebElement> names = driver.findElements(employeeCardNames);
-        if (names.isEmpty()) {
-            return "";
-        }
-        return names.get(0).getText().trim();
-    }
-
-    public boolean isNoResultsDisplayed() {
-        return isDisplayed(noRecordsFound);
-    }*/
 
     public boolean containsEmployee(String firstName, String lastName) {
         List<WebElement> cards = driver.findElements(employeeCards);
