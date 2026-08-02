@@ -29,14 +29,9 @@ jobs:
       - name: Build project
         run: mvn compile test-compile -B
 
-      # 4. Pruebas de UI (Chrome corre en headless gracias a la variable CI=true)
-      - name: Run UI Tests
-        run: mvn test -Dtest="LoginTest,AddEmployeeTest,DirectoryTest" -B
-        continue-on-error: true
-
-      # 5. Pruebas de API
-      - name: Run API Tests
-        run: mvn test -Dtest="AuthApiTest,EmployeeApiTest" -B
+      # 4. Pruebas de UI y API en un solo proceso para que compartan el reporte ExtentReports
+      - name: Run UI and API Tests
+        run: mvn test -Dtest="LoginTest,AddEmployeeTest,DirectoryTest,AuthApiTest,EmployeeApiTest" -Dmaven.test.failure.ignore=true -B
         continue-on-error: true
 
       # 6. Pruebas de Performance

@@ -20,6 +20,7 @@ public class DirectoryPage extends BasePage {
     }
 
     public DirectoryPage searchByEmployeeName(String name) {
+        waitForClickable(employeeNameInput);
         type(employeeNameInput, name);
         // Esperar a que aparezca la opcion en el autocomplete y seleccionarla
         try {
